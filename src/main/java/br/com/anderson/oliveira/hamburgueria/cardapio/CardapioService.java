@@ -32,7 +32,8 @@ public class CardapioService {
 	public Cardapio listarLanches() {
 		
 		List<Lanche> lanches = this.lancheRepo.buscarTodosLanches();
-		List<LancheValorPromocao> todos = new ArrayList<LancheValorPromocao>();
+		List<LancheValorPromocao> todosLanchesPromocoes = new ArrayList<LancheValorPromocao>();
+		
 		Cardapio cardapio = Cardapio.builder()
 				.dataHoraProcessamento(DataUtils.dateTimeParaDataStringPT_BR(LocalDateTime.now()))
 				.build();
@@ -45,11 +46,11 @@ public class CardapioService {
 										.valor(this.ingredienteService.somarValorIngredientesDoLanche(lanche.getIngredientes()))
 										.promocoes(null)
 										.build();
-				todos.add(lancheValor);
+				todosLanchesPromocoes.add(lancheValor);
 			}
 		}
 		
-		cardapio.setLanches(todos);
+		cardapio.setLanches(todosLanchesPromocoes);
 		
 		return cardapio;
 	}
