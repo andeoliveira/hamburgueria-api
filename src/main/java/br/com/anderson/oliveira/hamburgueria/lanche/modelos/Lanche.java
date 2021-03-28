@@ -37,7 +37,7 @@ public class Lanche {
 	@Column(name = "nome", length = 100, nullable = false)
 	private String nome;
 	
-	@Column(name = "urlimagem", length = 2000, nullable = false)
+	@Column(name = "urlimagem", length = 2000, nullable = true)
 	private String urlimagem;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
