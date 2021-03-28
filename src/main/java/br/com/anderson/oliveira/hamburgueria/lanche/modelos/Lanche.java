@@ -37,6 +37,9 @@ public class Lanche {
 	@Column(name = "nome", length = 100, nullable = false)
 	private String nome;
 	
+	@Column(name = "urlimagem", length = 2000, nullable = false)
+	private String urlimagem;
+	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "lancheingrediente", joinColumns = {@JoinColumn(name="lancheid")}, inverseJoinColumns = {@JoinColumn(name="ingredienteid")})
 	@Builder.Default

@@ -17,6 +17,7 @@ public class PromocaoMuitaCarne implements PromocaoInterface {
 	
 	@Inject
 	IngredienteService ingredienteService;
+	
 	/**
 	 * Método que verifica o valor do desconto da Promoção Muita carne.
 	 * Regra da promo: A cada 3 porções de carne o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...
@@ -24,8 +25,10 @@ public class PromocaoMuitaCarne implements PromocaoInterface {
 	 * @param ingredientes
 	 * @return valorPromocional
 	 */
+	
 	@Override
 	public BigDecimal calcularValorPromocional(List<Ingrediente> ingredientes) {
+		
 		List<Ingrediente> ingredientesHamburguer = ingredientes.stream()
 													.filter(i -> i.getNome().equals("Hambúrguer de carne"))
 													.collect(Collectors.toList());
