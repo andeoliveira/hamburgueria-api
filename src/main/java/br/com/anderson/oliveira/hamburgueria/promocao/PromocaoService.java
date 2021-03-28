@@ -33,6 +33,7 @@ public class PromocaoService {
 	}
 	
 	public List<ValorPromocao> calcularValorPromocional(List<Ingrediente> ingredientes) {
+		
 		List<ValorPromocao> promocoes = new ArrayList<ValorPromocao>();
 		
 		promocoes.add(promoLight.gerarValorPromocao(ingredientes));

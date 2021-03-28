@@ -23,9 +23,11 @@ public class IngredienteService {
 	 */
 	
 	public List<Ingrediente> listarTodos() {
+		
 		List<Ingrediente> todosIngredientes = new ArrayList<Ingrediente>();
 		todosIngredientes = ingredienteRepo.buscarTodosIngredientes();
 		return todosIngredientes;
+		
 	}
 	
 	/**
@@ -36,9 +38,11 @@ public class IngredienteService {
 	 */
 	
 	public Ingrediente listarPorId(Long id) {
+		
 		Ingrediente ingrediente = new Ingrediente();
 		ingrediente = ingredienteRepo.buscarIngredientePorId(id);
 		return ingrediente;
+		
 	}
 	
 	/**
@@ -56,5 +60,12 @@ public class IngredienteService {
 			
 		
 		return valorTotal;
+	}
+	
+	public BigDecimal buscarValorIngrediente(String nome) {
+		
+		Ingrediente ingrediente = this.ingredienteRepo.buscarIngredientePorNome(nome);
+		return ingrediente.getValor();
+		
 	}
 }

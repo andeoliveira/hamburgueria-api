@@ -65,13 +65,3 @@ VALUES(4, 3);
 INSERT INTO public.lancheingrediente
 (lancheid, ingredienteid)
 VALUES(4, 5);
-
-INSERT INTO public.promocao
-(id, descricao, nome)
-VALUES(1, 'Promo Light! Tem alface e não tem bacon, ganha 10% de desconto.', 'Light');
-INSERT INTO public.promocao
-(id, descricao, nome)
-VALUES(2, 'Promo Muita carne! A cada 3 porções de carne o cliente só paga 2!', 'Muita carne');
-INSERT INTO public.promocao
-(id, descricao, nome)
-VALUES(3, 'Promo Muito queijo! A cada 3 porções de queijo o cliente só paga 2!', 'Muito queijo');

@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import br.com.anderson.oliveira.hamburgueria.ingrediente.IngredienteService;
+import br.com.anderson.oliveira.hamburgueria.ingrediente.modelos.Ingrediente;
 import br.com.anderson.oliveira.hamburgueria.lanche.itens.LancheValorPromocao;
 import br.com.anderson.oliveira.hamburgueria.lanche.modelos.Lanche;
 import br.com.anderson.oliveira.hamburgueria.lanche.repositorio.LancheRepositorioImpl;
@@ -49,15 +50,22 @@ public class LancheService {
 		return lanche;
 	}
 	
-	public LancheValorPromocao calularValorLanche(Long lancheid) {
+	/**
+	 * Método retorna as promoções e valor ativo para o lanche a partir de seus ingredientes.
+	 * @author Anderson Oliveira
+	 * @param id
+	 * @return lancheValorPromocao
+	 */
+	
+	public LancheValorPromocao calcularValorLanche(Long lancheid, List<Ingrediente> ingredientes) {
 		
 		Lanche lanche = this.listarPorId(lancheid);
 		
 		if (lanche!= null) {
 			LancheValorPromocao lancheValorPromocao = LancheValorPromocao.builder()
 					.lanche(lanche)
-					.valor(this.ingredienteService.somarValorIngredientesDoLanche(lanche.getIngredientes()))
-					.promocoes(promocaoService.calcularValorPromocional(lanche.getIngredientes()))
+					.valor(this.ingredienteService.somarValorIngredientesDoLanche(ingredientes))
+					.promocoes(promocaoService.calcularValorPromocional(ingredientes))
 					.build();
 			
 			return lancheValorPromocao;

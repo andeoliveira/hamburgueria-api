@@ -47,6 +47,7 @@ public class CardapioService {
 										.promocoes(null)
 										.build();
 				todosLanchesPromocoes.add(lancheValor);
+				
 			}
 		}
 		

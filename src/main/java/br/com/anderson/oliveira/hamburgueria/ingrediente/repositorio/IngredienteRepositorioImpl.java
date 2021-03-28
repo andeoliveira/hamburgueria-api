@@ -28,5 +28,9 @@ public class IngredienteRepositorioImpl implements IngredienteRepositorio {
 		Query query = em.createQuery("SELECT b FROM Ingrediente b");
 		return (List<Ingrediente>) query.getResultList();
 	}
+	
+	public Ingrediente buscarIngredientePorNome(String nome) {
+		return em.find(Ingrediente.class, nome);
+	}
 
 }
