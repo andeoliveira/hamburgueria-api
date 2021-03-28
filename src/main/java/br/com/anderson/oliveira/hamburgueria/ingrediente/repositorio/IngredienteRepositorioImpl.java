@@ -29,6 +29,7 @@ public class IngredienteRepositorioImpl implements IngredienteRepositorio {
 		return (List<Ingrediente>) query.getResultList();
 	}
 	
+	
 	public Ingrediente buscarIngredientePorNome(String nome) {
 		return em.find(Ingrediente.class, nome);
 	}
