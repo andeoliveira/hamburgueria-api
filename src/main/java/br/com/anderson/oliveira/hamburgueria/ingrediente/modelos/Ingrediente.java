@@ -40,6 +40,9 @@ public class Ingrediente {
 	@Column(name = "nome", nullable = false, length = 100)
 	private String nome;
 	
+	@Column(name = "urlimagem", nullable = true, length = 2000)
+	private String urlimagem;
+	
 	@Column(name = "valor", nullable = false)
     private BigDecimal valor;
 	

@@ -14,20 +14,20 @@ INSERT INTO public.lanche
 (id, nome, urlimagem)
 VALUES(5, 'Lanche Personalizado', null);
 INSERT INTO public.ingrediente
-(id, nome, valor)
-VALUES(1, 'Alface', 0.40);
+(id, nome, valor, urlimagem)
+VALUES(1, 'Alface', 0.40, 'https://lh3.googleusercontent.com/pw/ACtC-3c4Kl3QaB0ukxQXfeWDvEz1jtnnUSOQ8Gnr3r5dTnuzGzcj3t6HlioBb5xLHs8pW1oazPIGr6TiUdGluNi7uRRT8LVxZx-5ZX8mblDPcJDjUSEPHz4kzf9FD6F_L5NmsQM9RMQLN0IF2cfIjVsSPdXy=s300-no?authuser=0');
 INSERT INTO public.ingrediente
-(id, nome, valor)
-VALUES(2, 'Bacon', 2.00);
+(id, nome, valor, urlimagem)
+VALUES(2, 'Bacon', 2.00, 'https://lh3.googleusercontent.com/pw/ACtC-3c4Kl3QaB0ukxQXfeWDvEz1jtnnUSOQ8Gnr3r5dTnuzGzcj3t6HlioBb5xLHs8pW1oazPIGr6TiUdGluNi7uRRT8LVxZx-5ZX8mblDPcJDjUSEPHz4kzf9FD6F_L5NmsQM9RMQLN0IF2cfIjVsSPdXy=s300-no?authuser=0');
 INSERT INTO public.ingrediente
-(id, nome, valor)
-VALUES(3, 'Hambúrguer de carne', 3.00);
+(id, nome, valor, urlimagem)
+VALUES(3, 'Hambúrguer de carne', 3.00, 'https://lh3.googleusercontent.com/pw/ACtC-3c4Kl3QaB0ukxQXfeWDvEz1jtnnUSOQ8Gnr3r5dTnuzGzcj3t6HlioBb5xLHs8pW1oazPIGr6TiUdGluNi7uRRT8LVxZx-5ZX8mblDPcJDjUSEPHz4kzf9FD6F_L5NmsQM9RMQLN0IF2cfIjVsSPdXy=s300-no?authuser=0');
 INSERT INTO public.ingrediente
-(id, nome, valor)
-VALUES(4, 'Ovo', 0.80);
+(id, nome, valor, urlimagem)
+VALUES(4, 'Ovo', 0.80, 'https://lh3.googleusercontent.com/pw/ACtC-3c4Kl3QaB0ukxQXfeWDvEz1jtnnUSOQ8Gnr3r5dTnuzGzcj3t6HlioBb5xLHs8pW1oazPIGr6TiUdGluNi7uRRT8LVxZx-5ZX8mblDPcJDjUSEPHz4kzf9FD6F_L5NmsQM9RMQLN0IF2cfIjVsSPdXy=s300-no?authuser=0');
 INSERT INTO public.ingrediente
-(id, nome, valor)
-VALUES(5, 'Queijo', 1.50);
+(id, nome, valor, urlimagem)
+VALUES(5, 'Queijo', 1.50, 'https://lh3.googleusercontent.com/pw/ACtC-3c4Kl3QaB0ukxQXfeWDvEz1jtnnUSOQ8Gnr3r5dTnuzGzcj3t6HlioBb5xLHs8pW1oazPIGr6TiUdGluNi7uRRT8LVxZx-5ZX8mblDPcJDjUSEPHz4kzf9FD6F_L5NmsQM9RMQLN0IF2cfIjVsSPdXy=s300-no?authuser=0');
 
 INSERT INTO public.lancheingrediente
 (lancheid, ingredienteid)
