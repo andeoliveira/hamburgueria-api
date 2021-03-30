@@ -35,13 +35,10 @@ public class PromocaoMuitoQueijo implements PromocaoInterface{
 				.collect(Collectors.toList());
 
 		Integer itensDesconto = ingredientesQueijo.size() / 3;
-		
 		BigDecimal valorIngrediente = this.ingredienteService.buscarValorIngrediente("Queijo");
 		BigDecimal valorDesconto = valorIngrediente.multiply(new BigDecimal(itensDesconto));
-		BigDecimal valorSemDesconto = ingredienteService.somarValorIngredientesDoLanche(ingredientesQueijo);
-		BigDecimal totalValorPromocional = valorSemDesconto.subtract(valorDesconto);
 		
-		return totalValorPromocional;
+		return valorDesconto;
 	}
 	
 	/**
@@ -53,9 +50,12 @@ public class PromocaoMuitoQueijo implements PromocaoInterface{
 	
 	@Override
 	public boolean verificarSeAptoNaPromocao(List<Ingrediente> ingredientes) {
-		if (ingredientes.stream().filter(i -> i.getNome().equals("Queijo")).count() > 2) {
+		Long totalIngrediente = ingredientes.stream().filter(i -> i.getNome().equals("Queijo")).count();
+		
+		if (totalIngrediente > 2) {
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -64,7 +64,7 @@ public class PromocaoMuitoQueijo implements PromocaoInterface{
 		ValorPromocao valorPromocao = ValorPromocao.builder().build();
 		
 		if (this.verificarSeAptoNaPromocao(ingredientes)) {
-			valorPromocao.setValorPromocional(this.calcularValorPromocional(ingredientes));
+			valorPromocao.setValorDesconto(this.calcularValorPromocional(ingredientes));
 			valorPromocao.setPromocao(Promocao.MUITO_QUEIJO);
 		}
 		

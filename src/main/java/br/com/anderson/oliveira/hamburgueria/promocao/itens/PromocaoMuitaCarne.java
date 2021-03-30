@@ -37,10 +37,8 @@ public class PromocaoMuitaCarne implements PromocaoInterface {
 		
 		BigDecimal valorIngrediente = this.ingredienteService.buscarValorIngrediente("Hambúrguer de carne");
 		BigDecimal valorDesconto = valorIngrediente.multiply(new BigDecimal(itensDesconto));
-		BigDecimal valorSemDesconto = ingredienteService.somarValorIngredientesDoLanche(ingredientesHamburguer);
-		BigDecimal totalValorPromocional = valorSemDesconto.subtract(valorDesconto);
 		
-		return totalValorPromocional;
+		return valorDesconto;
 	}
 	
 	/**
@@ -52,18 +50,24 @@ public class PromocaoMuitaCarne implements PromocaoInterface {
 	
 	@Override
 	public boolean verificarSeAptoNaPromocao(List<Ingrediente> ingredientes) {
-		if (ingredientes.stream().filter(i -> i.getNome().equals("Hambúrguer de carne")).count() > 2) {
+		
+		Long totalIngrediente = ingredientes.stream().filter(i -> i.getNome().equals("Hambúrguer de carne")).count();
+		
+		if (totalIngrediente > 2) {
 			return true;
 		}
+		
 		return false;
+		
 	}
 
 	@Override
 	public ValorPromocao gerarValorPromocao(List<Ingrediente> ingredientes) {
+		
 		ValorPromocao valorPromocao = ValorPromocao.builder().build();
 		
 		if (this.verificarSeAptoNaPromocao(ingredientes)) {
-			valorPromocao.setValorPromocional(this.calcularValorPromocional(ingredientes));
+			valorPromocao.setValorDesconto(this.calcularValorPromocional(ingredientes));
 			valorPromocao.setPromocao(Promocao.MUITA_CARNE);
 		}
 		

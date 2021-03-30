@@ -57,12 +57,15 @@ public class LancheService {
 	 * @return lancheValorPromocao
 	 */
 	
+	@SuppressWarnings("unused")
 	public LancheValorPromocao calcularValorLanche(Long lancheid, List<Ingrediente> ingredientes) {
 		
 		Lanche lanche = this.listarPorId(lancheid);
+		lanche.setIngredientes(ingredientes);
+		LancheValorPromocao lancheValorPromocao = new LancheValorPromocao();
 		
 		if (lanche!= null) {
-			LancheValorPromocao lancheValorPromocao = LancheValorPromocao.builder()
+			lancheValorPromocao = LancheValorPromocao.builder()
 					.lanche(lanche)
 					.valor(this.ingredienteService.somarValorIngredientesDoLanche(ingredientes))
 					.promocoes(promocaoService.calcularValorPromocional(ingredientes))
@@ -71,7 +74,7 @@ public class LancheService {
 			return lancheValorPromocao;
 		}
 		
-		return null;
+		return lancheValorPromocao;
 		
 	}
 	

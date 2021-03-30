@@ -26,7 +26,8 @@ public class PromocaoLight implements PromocaoInterface {
 	@Override
 	public BigDecimal calcularValorPromocional(List<Ingrediente> ingredientes) {
 		BigDecimal valorSemDesconto = ingredienteService.somarValorIngredientesDoLanche(ingredientes);
-		return valorSemDesconto.multiply(new BigDecimal(10/100.0));
+		BigDecimal valorDesconto = valorSemDesconto.multiply(new BigDecimal(10/100.0));
+		return valorDesconto;
 	}
 	
 	/**
@@ -59,7 +60,7 @@ public class PromocaoLight implements PromocaoInterface {
 		ValorPromocao valorPromocao = ValorPromocao.builder().build();
 		
 		if (this.verificarSeAptoNaPromocao(ingredientes)) {
-			valorPromocao.setValorPromocional(this.calcularValorPromocional(ingredientes));
+			valorPromocao.setValorDesconto(this.calcularValorPromocional(ingredientes));
 			valorPromocao.setPromocao(Promocao.LIGHT);
 		}
 		

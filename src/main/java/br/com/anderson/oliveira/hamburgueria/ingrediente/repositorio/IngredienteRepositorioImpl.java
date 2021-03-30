@@ -1,6 +1,6 @@
 package br.com.anderson.oliveira.hamburgueria.ingrediente.repositorio;
 
-import java.util.List;
+import java.util.List; 
 
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
@@ -31,7 +31,10 @@ public class IngredienteRepositorioImpl implements IngredienteRepositorio {
 	
 	
 	public Ingrediente buscarIngredientePorNome(String nome) {
-		return em.find(Ingrediente.class, nome);
+		Ingrediente ingrediente = em.createQuery("SELECT b FROM Ingrediente b WHERE b.nome = :nome", Ingrediente.class)
+				.setParameter("nome", nome)
+				.getSingleResult();
+		return ingrediente;
 	}
 
 }

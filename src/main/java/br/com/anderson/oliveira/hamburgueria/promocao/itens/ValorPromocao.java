@@ -12,6 +12,6 @@ import lombok.Setter;
 public class ValorPromocao {
 	
 	private Promocao promocao;
-	public BigDecimal valorPromocional;
+	public BigDecimal valorDesconto;
 	
 }
